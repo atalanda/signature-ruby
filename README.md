@@ -73,7 +73,7 @@ signed_parameters = request.sign(token)
 token = Atalanda::Signature::Token.new(KEY, SECRET)
 request = Atalanda::Signature::Request.new("POST", "https://atalogics.com/api/orderOffer", parameters) # parameters contains a hash representing the json above
 signed_parameters = request.sign(token)
-
+# post to our API, for example with HTTParty
 HTTParty.post("https://atalogics.com/api/orderOffer", 
   :body => signed_parameters.to_json,
   :headers => { 'Content-Type' => 'application/json' })
