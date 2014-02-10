@@ -38,7 +38,7 @@ module Atalanda
           }
         end
 
-        if @time - get_auth_hash["auth_timestamp"].to_i > timestamp_grace
+        if (@time - get_auth_hash["auth_timestamp"].to_i).abs > timestamp_grace
           return {
             "authenticated" => false,
             "reason" => "Auth timestamp is older than #{timestamp_grace} seconds"

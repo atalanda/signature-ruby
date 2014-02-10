@@ -108,7 +108,7 @@ describe Atalanda::Signature::Request do
       request = Atalanda::Signature::Request.new("POST", "/api/order", params)
       signedParams = request.sign(@token)
 
-      Timecop.travel(Date.parse("21.12.2014"))
+      Timecop.travel(Date.parse("19.12.2014"))
       request2 = Atalanda::Signature::Request.new("POST", "/api/order", signedParams)
       timestamp_grace = 700
       result = request2.authenticate(@token, timestamp_grace)
